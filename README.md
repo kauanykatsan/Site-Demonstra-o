@@ -8,5 +8,5 @@ Senhas, investimentos, criptoativos, documentos e memórias — tudo em um cofre
 - HTML5 / CSS3
 - JavaScript
 
-## Time
+## Equipe
 Cristiane, Dionatan, Joel, Kauany, Michel, Sarah, Thais e Vinicius.
