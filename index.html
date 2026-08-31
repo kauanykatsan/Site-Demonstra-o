@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herança Digital</title>
+<style>
+:root{
+ --purple:#7229e6;
+ --text:#1b1235;
+ --muted:#6f638a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top right,rgba(154,99,255,.18),transparent 35%),
+    linear-gradient(180deg,#f0e9ff,#faf8ff);
+  color:var(--text);
+}
+.phone{
+  max-width:430px;
+  margin:auto;
+  background:rgba(255,255,255,.18);
+}
+header{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(18px);
+  background:rgba(250,248,255,.85);
+  padding:16px 20px;
+  border-bottom:1px solid rgba(114,41,230,.12);
+  display:flex;
+  justify-content:space-between;
+}
+section{padding:60px 24px;}
+.kicker{
+  color:var(--purple);
+  font-size:13px;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+h1{
+  font-size:64px;
+  line-height:.9;
+  letter-spacing:-.08em;
+}
+h2{
+  font-size:40px;
+  line-height:1;
+  letter-spacing:-.06em;
+}
+.italic{
+  color:var(--purple);
+  font-family:Georgia,serif;
+  font-style:italic;
+}
+p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.6;
+}
+.card{
+  background:white;
+  padding:24px;
+  border-radius:28px;
+  margin-top:20px;
+  box-shadow:0 18px 45px rgba(40,20,80,.08);
+}
+.lock{
+  width:180px;
+  display:block;
+  margin:36px auto 0;
+  filter:drop-shadow(0 25px 35px rgba(25,20,60,.25));
+  animation:float 4s ease-in-out infinite;
+}
+.num{
+  font-size:64px;
+  font-weight:900;
+  color:var(--purple);
+}
+.final{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.frase{
+  font-size:34px;
+  line-height:1.15;
+  font-weight:800;
+  letter-spacing:-.05em;
+  margin:20px 0;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:all .8s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+</style>
+</head>
+<body>
+<main class="phone">
+
+<header>
+  <strong>Herança Digital</strong>
+  <span style="color:#7229e6;font-size:12px;font-weight:800;">demo mobile</span>
+</header>
+
+<section>
+  <div class="kicker reveal">Segurança • Custódia • Legado</div>
+  <h1 class="reveal">Herança <span class="italic">digital.</span></h1>
+  <p class="reveal">Segurança para o que você <span class="italic">construiu</span>. Amparo para quem você <span class="italic">ama</span>.</p>
+  <img class="lock reveal" src="./img/cadeado.png" alt="Cadeado">
+</section>
+
+<section>
+  <div class="kicker reveal">O problema</div>
+  <div class="card reveal">
+    <h2>Quem acessa seus dados amanhã?</h2>
+    <p>Senhas, investimentos, documentos e memórias digitais podem ficar perdidos quando ninguém sabe onde encontrá-los.</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker reveal">Validação</div>
+  <div class="card reveal">
+    <div class="num">31</div>
+    <p>Pessoas pesquisadas com mais de 35 anos e patrimônio.</p>
+  </div>
+  <div class="card reveal">
+    <div class="num">87,5%</div>
+    <p>Enfrentam dificuldades para encontrar dados seguros após falecimento.</p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker reveal">Nossa solução</div>
+  <h2 class="reveal">Segurança de bens digitais.</h2>
+  <div class="card reveal">
+    🔐 Senhas • 📄 Documentos • 💰 Investimentos • ❤️ Memórias
+  </div>
+</section>
+
+<section class="final">
+  <div class="kicker reveal">Legado protegido</div>
+  <h1 class="reveal">Segurança para o que você <span class="italic">construiu</span>.</h1>
+  <div class="frase reveal">
+    O maior patrimônio não é só o que você deixa.<br>
+    É a tranquilidade que fica para quem você ama.
+  </div>
+  <p class="reveal">
+    Organize hoje o que é importante, para que sua família tenha proteção, clareza e amparo amanhã.
+  </p>
+  <img class="lock reveal" src="./img/cadeado.png" alt="Cadeado">
+</section>
+
+</main>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.15});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
